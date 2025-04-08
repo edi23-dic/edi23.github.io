@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERLOCKDOWN - Securitate Cibernetică</title>
+    <style>
+        /* Stiluri generale */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #121212;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #0cf;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: #1a1a1a;
+        }
+        
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: #0cf;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(to right, #121212, #2a2a2a);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #0cf, #09f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0;
+            color: #121212;
+        }
+        
+        /* Stiluri pentru secțiunea oferte */
+        .offers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            background-color: #fff;
+        }
+        
+        .offer-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .offer-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #121212;
+        }
+        
+        .offer-price {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0cf;
+            font-weight: bold;
+        }
+        
+        .offer-features {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .offer-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .offer-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #0cf;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #09f;
+        }
+        
+        /* Stiluri pentru secțiunea despre */
+        .about {
+            padding: 3rem 2rem;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Stiluri pentru secțiunea echipă */
+        .team {
+            padding: 3rem 2rem;
+            background-color: #fff;
+        }
+        
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .team-member {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member h3 {
+            margin: 0.5rem 0;
+            color: #121212;
+        }
+        
+        .team-member p {
+            color: #666;
+        }
+        
+        /* Stiluri pentru formular */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+        }
+        
+        .form-button {
+            background-color: #0cf;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .form-button:hover {
+            background-color: #09f;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #121212;
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: #0cf;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-text {
+            margin-top: 1rem;
+            color: #888;
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        /* Stiluri pentru modalul de confirmare */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CYBERLOCKDOWN</div>
+        <div class="tagline">Protecție cibernetică avansată pentru afacerea ta</div>
+    </header>
+    
+    <div class="nav">
+        <a href="#oferte">Oferte</a>
+        <a href="#despre">Despre noi</a>
+        <a href="#echipa">Echipa</a>
+        <a href="#contact">Contact</a>
+    </div>
+    
+    <div class="hero">
+        <h1>Protejează-ți viitorul digital</h1>
+        <p>CYBERLOCKDOWN oferă soluții de securitate cibernetică de ultimă generație, concepute pentru a proteja afacerea ta împotriva amenințărilor digitale moderne. Fondată de experți în fizică și securitate informatică, compania noastră îmbină principiile științifice cu tehnologia avansată pentru a crea un ecosistem digital sigur.</p>
+    </div>
+    
+    <h2 class="section-title" id="oferte">Ofertele noastre</h2>
+    <div class="offers">
+        <div class="offer-card">
+            <div class="offer-title">Pachet Basic</div>
+            <div class="offer-price">199 €</div>
+            <ul class="offer-features">
+                <li>Evaluare de securitate de bază</li>
+                <li>Firewall de ultimă generație</li>
+                <li>Protecție antivirus</li>
+                <li>Consultanță inițială (2 ore)</li>
+                <li>Suport tehnic (8/5)</li>
+            </ul>
+            <a href="#contact" class="btn">Solicită ofertă</a>
+        </div>
+        
+        <div class="offer-card">
+            <div class="offer-title">Pachet Business</div>
+            <div class="offer-price">499 €</div>
+            <ul class="offer-features">
+                <li>Evaluare de securitate completă</li>
+                <li>Firewall avansat cu IDS/IPS</li>
+                <li>Protecție endpoint pentru toate dispozitivele</li>
+                <li>VPN securizat</li>
+                <li>Training de securitate pentru angajați</li>
+                <li>Suport tehnic (12/7)</li>
+            </ul>
+            <a href="#contact" class="btn">Solicită ofertă</a>
+        </div>
+        
+        <div class="offer-card">
+            <div class="offer-title">Pachet Enterprise</div>
+            <div class="offer-price">999 €</div>
+            <ul class="offer-features">
+                <li>Audit de securitate comprehensiv</li>
+                <li>Soluție completă de cybersecurity</li>
+                <li>Monitorizare activă 24/7</li>
+                <li>Protecție DDoS</li>
+                <li>Backup și recuperare date</li>
+                <li>Răspuns la incidente</li>
+                <li>Training avansat pentru echipa IT</li>
+                <li>Suport tehnic premium (24/7)</li>
+            </ul>
+            <a href="#contact" class="btn">Solicită ofertă</a>
+        </div>
+    </div>
+    
+    <div class="about" id="despre">
+        <div class="about-text">
+            <h2 class="section-title">Despre CYBERLOCKDOWN</h2>
+            <p>CYBERLOCKDOWN a fost fondată din pasiunea pentru știință și securitate. Pornind de la principiile fizicii cuantice și implementând tehnologii avansate de criptare, am dezvoltat soluții inovatoare pentru a proteja datele și sistemele companiilor în fața amenințărilor cibernetice tot mai sofisticate.</p>
+            <p>Misiunea noastră este să oferim clienților noștri cele mai sigure și eficiente soluții de securitate cibernetică, adaptate nevoilor specifice ale fiecărei afaceri. Combinăm expertiza în fizică cu cunoștințele avansate în informatică pentru a crea sisteme de protecție robuste și inteligente.</p>
+            <p>La CYBERLOCKDOWN, înțelegem că securitatea digitală nu este doar despre tehnologie, ci și despre oameni. De aceea, oferim și programe de training pentru a ajuta organizațiile să dezvolte o cultură a securității la toate nivelurile.</p>
+        </div>
+        <div class="about-image">
+            <img src="/api/placeholder/600/400" alt="Securitate Cibernetică">
+        </div>
+    </div>
+    
+    <h2 class="section-title" id="echipa">Echipa noastră</h2>
+    <div class="team">
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Profesor fizică">
+                <h3>Prof. Dr. Elena Ionescu</h3>
+                <p>Co-fondator & Director Științific</p>
+                <p>Expertă în fizică cuantică și criptografie, Dr. Ionescu aduce perspective inovatoare în domeniul securității cibernetice.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Student">
+                <h3>Alexandru Popescu</h3>
+                <p>Co-fondator & Director Tehnic</p>
+                <p>Fost student olimpic la fizică, Alexandru combină cunoștințele teoretice cu expertiza practică în securitate informatică.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Expert securitate">
+                <h3>Maria Dumitrescu</h3>
+                <p>Specialist Securitate Cibernetică</p>
+                <p>Cu peste 10 ani de experiență în domeniul securității IT, Maria coordonează echipa de audit și remediere.</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Consultant">
+                <h3>Mihai Stanescu</h3>
+                <p>Consultant Soluții Enterprise</p>
+                <p>Specializat în implementarea soluțiilor de securitate pentru companii mari și instituții guvernamentale.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contact" style="padding: 3rem 2rem; background-color: #f0f2f5; text-align: center;">
+        <h2 class="section-title">Contactează-ne</h2>
+        <p>Suntem aici pentru a răspunde întrebărilor tale și pentru a găsi soluția potrivită pentru nevoile tale de securitate.</p>
+        
+        <!-- Metodă 1: Formular care trimite datele prin FormSubmit -->
+        <div class="contact-form">
+            <div id="success-message" class="success-message">
+                Mesajul tău a fost trimis cu succes! Vom reveni cu un răspuns în cel mai scurt timp.
+            </div>
+            
+            <!-- Înlocuiți YOUR_EMAIL@gmail.com cu adresa dvs. reală de email -->
+            <form action="https://formsubmit.co/becueduardmarian@gmail.com" method="POST" id="contact-form">
+                <!-- Adăugați aceste câmpuri pentru a personaliza FormSubmit -->
+                <input type="hidden" name="_subject" value="Nouă cerere de la CYBERLOCKDOWN">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://your-website.com/thank-you.html">
+                
+                <div class="form-group">
+                    <label for="name">Nume complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Companie</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mesaj</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="form-button">Trimite mesaj</button>
+            </form>
+        </div>
+        
+        <!-- Metodă 2: Buton Gmail direct -->
+        <div style="margin-top: 2rem;">
+            <p>Alternativ, ne poți contacta direct prin e-mail:</p>
+            <a href="#" id="gmail-link" class="btn" style="margin-top: 0.5rem;">Trimite email direct</a>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmare -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h3>Confirmă datele de contact</h3>
+            <p>Vă rugăm să verificați datele înainte de a trimite:</p>
+            <div id="confirm-details" style="margin: 1rem 0; padding: 1rem; background-color: #f9f9f9; border-radius: 4px;"></div>
+            <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+                <button id="edit-data" class="btn" style="background-color: #6c757d;">Editează</button>
+                <button id="send-data" class="btn">Trimite</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="logo">CYBERLOCKDOWN</div>
+        <div class="footer-links">
+            <a href="#oferte">Oferte</a>
+            <a href="#despre">Despre noi</a>
+            <a href="#echipa">Echipa</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Politica de confidențialitate</a>
+            <a href="#">Termeni și condiții</a>
+        </div>
+        <div class="footer-text">
+            <p>© 2025 CYBERLOCKDOWN. Toate drepturile rezervate.</p>
+            <p>Adresă: Str. Securității, nr. 128, București, România</p>
+            <p>Email: contact@cyberlockdown.ro | Tel: +40 755 123 456</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Funcție pentru butonul de Gmail direct
+        document.getElementById('gmail-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Preluați valorile din formular dacă există
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const companyInput = document.getElementById('company');
+            const messageInput = document.getElementById('message');
+            
+            let subject = "Cerere informații CYBERLOCKDOWN";
+            let body = "Bună ziua,\n\nDoresc să aflu mai multe informații despre serviciile CYBERLOCKDOWN.\n\n";
+            
+            // Adăugați informațiile din formular dacă sunt completate
+            if (nameInput && nameInput.value) {
+                body += "Nume: " + nameInput.value + "\n";
+            }
+            
+            if (phoneInput && phoneInput.value) {
+                body += "Telefon: " + phoneInput.value + "\n";
+            }
+            
+            if (companyInput && companyInput.value) {
+                body += "Companie: " + companyInput.value + "\n";
+            }
+            
+            if (messageInput && messageInput.value) {
+                body += "\nMesaj:\n" + messageInput.value + "\n";
+            }
+            
+            body += "\nCu stimă,";
+            
+            // Înlocuiți YOUR_EMAIL@gmail.com cu adresa dvs. reală de email
+            window.location.href = "mailto:becueduardmarian@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        });
+        
+        // Funcționalitate pentru formularul principal
+        const contactForm = document.getElementById('contact-form');
+        const modal = document.getElementById('confirmation-modal');
+        const closeModal = document.getElementById('close-modal');
+        const confirmDetails = document.getElementById('confirm-details');
+        const editBtn = document.getElementById('edit-data');
+        const sendBtn = document.getElementById('send-data');
+        
+        // Eveniment pentru afișarea modalului de confirmare
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Colectăm datele din formular
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const company = document.getElementById('company').value || 'Nu a fost specificat';
+                const message = document.getElementById('message').value;
+                
+                // Afișăm datele în modal
+                confirmDetails.innerHTML = `
+                    <p><strong>Nume:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Telefon:</strong> ${phone}</p>
+                    <p><strong>Companie:</strong> ${company}</p>
+                    <p><strong>Mesaj:</strong> ${message}</p>
+                `;
+                
+                // Afișăm modalul
+                modal.style.display = 'block';
+            });
+        }
+        
+        // Închidere modal
+        if (closeModal) {
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+        }
+        
+        // Buton de editare date
+        if (editBtn) {
+            editBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+        }
+        
+        // Buton de trimitere date
+        if (sendBtn) {
+            sendBtn.addEventListener('click', function() {
+                // Aici am putea face un fetch sau XMLHttpRequest pentru a trimite datele prin API
+                // Dar pentru simplitate vom folosi FormSubmit sau Gmail direct
+                
+                // Simulăm trimiterea și afișăm mesajul de succes
+                modal.style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                
+                // Trimitem formularul dacă folosim FormSubmit
+                contactForm.submit();
+                
+                // Resetăm formularul
+                contactForm.reset();
+                
+                // După 5 secunde, ascundem mesajul de succes
+                setTimeout(function() {
+                    document.getElementById('success-message').style.display = 'none';
+                }, 5000);
+            });
+        }
+        
+        // Închide modalul dacă se face clic în afara lui
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
